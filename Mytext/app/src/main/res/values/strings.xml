@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">林流转</string>
+    <string-array name="spinner1">
+        <item>全部</item>
+    </string-array>
+    <string-array name="spinner2">
+        <item>杭州</item>
+        <item>北京</item>
+        <item>上海</item>
+        <item>广州</item>
+        <item>深圳</item>
+    </string-array>
+    <string-array name="spinner3">
+        <item>流转形式</item>
+        <item>转让</item>
+        <item>转包</item>
+    </string-array>
+    <string-array name="spinner4">
+        <item>更多</item>
+    </string-array>
+</resources>

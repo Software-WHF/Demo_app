@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/home_image_view"
+        android:layout_height="180dp"
+        android:layout_width="360dp"
+        android:layout_margin="10dp"
+        />
+    <TextView
+        android:id="@+id/home_text_view_dizhi"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="临安市"
+        android:textColor="@color/white"
+        android:layout_marginTop="82dp"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/home_text_view_biaoti"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="115dp"
+        android:textSize="18dp"
+        android:text="100亩荒山转让" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+        android:background="@drawable/white_line"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+        android:background="@drawable/white_line"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView6" />
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:layout_marginBottom="5dp">
+
+    <ImageView
+        android:layout_height="39dp"
+        android:layout_width="177dp"
+        android:background="@drawable/biao_qian"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:id="@+id/imageView5"
+        />
+
+    <ImageView
+        android:layout_height="28dp"
+        android:layout_width="135dp"
+        android:background="@drawable/biao_qian2"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="18dp" />
+    <TextView
+        android:id="@+id/home_text_view_money"
+        android:layout_height="24dp"
+        android:textColor="@color/white"
+        android:text="26"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="17dp"
+        android:textSize="12dp"
+        android:layout_width="wrap_content"
+        />
+    <TextView
+        android:id="@+id/home_text_view_area"
+        android:textColor="@color/white"
+        android:layout_height="24dp"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="17dp"
+        android:textSize="12dp"
+        android:text="100亩"
+        />
+    <ImageView
+        android:layout_height="12dp"
+        android:layout_width="12dp"
+        android:background="@drawable/money"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="40dp"/>
+
+    <ImageView
+        android:layout_height="12dp"
+        android:layout_width="12dp"
+        android:background="@drawable/time"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="190dp"/>
+    <TextView
+        android:id="@+id/home_text_view_time"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="12年"
+        android:textSize="10dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="17dp"
+        />
+    <TextView
+        android:id="@+id/home_text_view_dizhi2"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="临安市"
+        android:textSize="10dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="265dp"
+        android:layout_marginTop="17dp"
+        />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
