@@ -24,24 +24,20 @@ public class AnimationActivity extends Activity {
 
         setContentView(R.layout.animation_activity);
 
-        //Display the current version number
         PackageManager pm = getPackageManager();
         try {
             PackageInfo pi = pm.getPackageInfo("org.wordpress.android", 0);
-//            TextView versionNumber = (TextView) findViewById(R.id.versionNumber);
-//            versionNumber.setText("Version " + pi.versionName);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
 
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                /* Create an Intent that will start the Main WordPress Activity. */
                 Intent mainIntent = new Intent(AnimationActivity.this, MainActivity.class);
                 AnimationActivity.this.startActivity(mainIntent);
                 AnimationActivity.this.finish();
             }
-        }, 1200); //2900 for release
+        }, 1200);
 
     }
 }

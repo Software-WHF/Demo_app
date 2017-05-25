@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/RLkk"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/top">
+        <ImageButton
+            android:id="@+id/top_back"
+            android:layout_width="14dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="20dip"
+            android:background="@drawable/back"
+            android:layout_centerVertical="true"
+            android:onClick="back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/top_back"
+            android:layout_marginLeft="10dip"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:onClick="back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="林业服务"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+        <ImageButton
+            android:id="@+id/top_more"
+            android:layout_width="23dp"
+            android:layout_height="5dp"
+            android:layout_marginRight="18dip"
+            android:background="@drawable/more"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/forest_service_LL1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/forest_service_recommend_RL"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <ImageView
+                        android:id="@+id/forest_service_recommend"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/forest_service_recommend"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/btn_recommend"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@color/white"
+                        android:layout_below="@id/forest_service_recommend"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:text="推荐"
+                        />
+                    <ImageView
+                        android:layout_below="@id/btn_recommend"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@drawable/apartline"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/forest_service_baike_RL"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <ImageView
+                        android:id="@+id/forest_service_baike"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/forset_service_baike"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/btn_baike"
+                        android:layout_below="@id/forest_service_baike"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:layout_height="35dp"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:text="百科"
+                        />
+                    <ImageView
+                        android:layout_below="@id/btn_baike"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@drawable/apartline"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <android.support.v4.view.ViewPager
+                android:layout_below="@id/forest_service_LL1"
+                android:id="@+id/forest_service_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/imgv_overtab11"
+            android:layout_width="180dp"
+            android:layout_height="35dp"
+            android:background="@color/green"
+            />
+    </FrameLayout>
+
+</LinearLayout>

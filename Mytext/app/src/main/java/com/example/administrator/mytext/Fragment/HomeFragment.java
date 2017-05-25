@@ -2,16 +2,12 @@ package com.example.administrator.mytext.Fragment;
 
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -23,24 +19,21 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.ImageView;
 
 import com.example.administrator.mytext.Activity_Search;
 import com.example.administrator.mytext.Activity_allForest;
+import com.example.administrator.mytext.Activity_forest_service;
 import com.example.administrator.mytext.Adapter.Adapter_home_land;
 import com.example.administrator.mytext.Database.Land;
 import com.example.administrator.mytext.DetailOfForest;
 import com.example.administrator.mytext.R;
-import com.example.administrator.mytext.Fragment.SmallFragment;
-import com.example.administrator.mytext.Fragment.SmallFragment2;
-import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +57,8 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
     private ImageView img_checkall;
 
     private EditText ET_top_serch;
+
+    private ImageButton forest_service;
     @NonNull
     @Override
     public View onCreateView(LayoutInflater inflater, @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {
@@ -83,6 +78,14 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         });
 
 
+        forest_service = (ImageButton)view.findViewById(R.id.forest_service);
+        forest_service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),Activity_forest_service.class);
+                startActivity(intent);
+            }
+        });
 
         hmft_checkall = (TextView)view.findViewById(R.id.homefg_checkall);
         img_checkall = (ImageView) view.findViewById(R.id.homefg_img_checkall);
@@ -193,9 +196,11 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         ListView lv_home_land = (ListView) view.findViewById(R.id.land_listView2);
         lv_home_land.setAdapter(adapter);
         setListViewHeightBasedOnChildren(lv_home_land);
-        lv_home_land.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv_home_land.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 Land land = landList.get(position);
                 Intent intent = new Intent(getActivity(),DetailOfForest.class);
                 intent.putExtra("land_id", land.getLand_id());
@@ -220,7 +225,8 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         return view;
     }
 
-    public void setListViewHeightBasedOnChildren(ListView listView) {
+    public void setListViewHeightBasedOnChildren(ListView listView)
+    {
                 // 获取ListView对应的Adapter
              Adapter_home_land adapter = (Adapter_home_land) listView.getAdapter();
              if (adapter == null) {
@@ -288,6 +294,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
 
 
     }
+
     private void InitViewPager(View parentView)
     {
         small_fragment1 = new SmallFragment();
@@ -298,7 +305,6 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         fragmentList.add(small_fragment2);
         viewPager3.setAdapter(new MyFrageStatePagerAdapter(getChildFragmentManager()));
     }
-
 
     class MyFrageStatePagerAdapter extends FragmentPagerAdapter
     {
@@ -354,7 +360,8 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         translateAnimation.setDuration(200);
         imageviewOvertab.startAnimation(translateAnimation);
     }
-   private void changeView(int desTab)
+
+    private void changeView(int desTab)
    {
        viewPager3.setCurrentItem(desTab, true);
    }
@@ -389,6 +396,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
     }
+
     @Override
     public void onPageSelected(int arg0) {
         setImageBackground(arg0 % mImageViews.length);
@@ -398,6 +406,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
     public void onPageScrollStateChanged(int state) {
 
     }
+
     private void setImageBackground(int selectItems) {
         for (int i = 0; i < tips.length; i++) {
             if (i == selectItems) {
