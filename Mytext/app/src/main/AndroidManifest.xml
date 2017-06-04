@@ -61,6 +61,7 @@
         <activity android:name=".Activity_Policy_2"/>
         <activity android:name=".Fragment.FragmentForForestService.Activity_attention"/>
         <activity android:name=".Activity_VR_view"/>
+        <activity android:name=".Activity_search_result"/>
 
         <service android:name="com.baidu.location.f"
             android:enabled="true"

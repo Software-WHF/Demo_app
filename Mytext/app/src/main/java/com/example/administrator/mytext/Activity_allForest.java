@@ -60,8 +60,6 @@ public class Activity_allForest extends Activity{
             }
 
         }
-
-
     };
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +94,6 @@ public class Activity_allForest extends Activity{
                         while((line = read.readLine()) != null) {
                             response.append(line);
                         }
-
                     }
                     Message message = new Message();
                     message.what = 1;
@@ -104,7 +101,6 @@ public class Activity_allForest extends Activity{
                     handler.sendMessage(message);
                 } catch (Exception e) {
                     e.printStackTrace();
-
                 }
 
             }
