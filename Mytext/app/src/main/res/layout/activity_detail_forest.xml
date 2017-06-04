@@ -109,12 +109,12 @@
                     android:text="forestName"/>
                 <Button
                     android:id="@+id/detail_btn_vr"
-                    android:layout_width="40dp"
+                    android:layout_width="62dp"
                     android:layout_height="16dp"
                     android:background="@drawable/button_vr"
                     android:layout_above="@id/detail_price"
                     android:layout_marginLeft="10dp"
-                    android:text="V R"
+                    android:text="VR全景"
                     android:textColor="@color/grey"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/detail_forest_name"/>

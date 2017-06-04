@@ -378,7 +378,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/mine_advice_feedback"
                 android:layout_centerHorizontal="true"
-                android:text="我的订单"
+                android:text="意见反馈"
                 android:textSize="13dp"
                 android:textColor="@color/grey"
                 android:layout_marginTop="5dp"/>
@@ -398,7 +398,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/mine_setting"
                 android:layout_centerHorizontal="true"
-                android:text="评估记录"
+                android:text="设置"
                 android:textSize="13dp"
                 android:textColor="@color/grey"
                 android:layout_marginTop="5dp"/>

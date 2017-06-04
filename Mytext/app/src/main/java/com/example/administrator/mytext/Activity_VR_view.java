@@ -26,7 +26,7 @@ public class Activity_VR_view extends Activity {
         Intent intent = getIntent();
         land_inner_id = intent.getStringExtra("land_inner_id");
         land_vr = intent.getStringExtra("land_vr");
-        Toast.makeText(getApplication(),land_vr,Toast.LENGTH_LONG).show();
+
         init();
     }
 

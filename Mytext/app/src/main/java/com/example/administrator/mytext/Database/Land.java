@@ -38,6 +38,7 @@ public class Land {
         land_management = land_management1;
         land_policy = land_policy1;
         land_imageID = land_imageId1;
+
     }
 
     public Land() {

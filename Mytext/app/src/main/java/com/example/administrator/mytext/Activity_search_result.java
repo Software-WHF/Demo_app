@@ -52,7 +52,7 @@ public class Activity_search_result extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
-        TextView textView  = (TextView) findViewById(R.id.result_search);
+      //  TextView textView  = (TextView) findViewById(R.id.result_search);
         lv_land = (ListView) findViewById(R.id.lv_search_result);
         Intent intent = getIntent();
         String min_price = intent.getStringExtra("min_price");
@@ -64,7 +64,7 @@ public class Activity_search_result extends Activity {
         String area = intent.getStringExtra("area");
         String year = intent.getStringExtra("year");
 
-        textView.setText(min_price+max_price+your_district+other_need+purpose+style+area+year);
+    //    textView.setText(min_price+max_price+your_district+other_need+purpose+style+area+year);
 
         new Thread(new Runnable() {
             @Override

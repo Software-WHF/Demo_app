@@ -32,7 +32,7 @@ public class Activity_Search extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         init();
-}
+    }
 
     void init()
     {

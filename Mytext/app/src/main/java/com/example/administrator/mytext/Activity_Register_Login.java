@@ -220,6 +220,8 @@ public class Activity_Register_Login extends Activity {
     {
         overridePendingTransition(R.anim.push_right_in,
                 R.anim.push_right_out);
+        Intent intent2 = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent2);
         finish();
     }
 }
