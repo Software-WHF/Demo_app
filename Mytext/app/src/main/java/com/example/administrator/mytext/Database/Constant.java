@@ -8,5 +8,6 @@ public class Constant {
     public static String URL_Upload = URL + "UploadServlet";
     public static String URL_Addland = URL + "AddlandServlet";
     public static String URL_Product = URL + "ProductServlet";
+    public static String URL_Download = URL + "DownloadServlet";
 
 }

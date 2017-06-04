@@ -23,7 +23,7 @@ import com.example.administrator.mytext.R;
 
 public class SmallFragment2 extends Fragment{
 
-    private Button btn_contact;
+    private Button btn_contact,btn_forest_assess;
     private View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,6 +58,18 @@ public class SmallFragment2 extends Fragment{
                 dialog.setNegativeButton("取消",null);
                 dialog.show();
 
+            }
+        });
+        btn_forest_assess = (Button)view.findViewById(R.id.btn_forest_assess);
+        btn_forest_assess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                dialog.setTitle("提示");
+                dialog.setMessage("该功能正在开发中......");
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("确认",null);
+                dialog.show();
             }
         });
         return view;

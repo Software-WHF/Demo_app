@@ -380,7 +380,8 @@ public class Activity_outflow_publish extends Activity {
         HttpURLConnection conn = null;
         String BOUNDARY = "|";
         try {
-            URL url = new URL(urlStr+"?user_id="+Now_user.User_id);
+            String land_id = Now_user.User_id + "_" + new DateFormat().format("yyyyMMdd_hhmmss", Calendar.getInstance(Locale.CHINA));
+            URL url = new URL(urlStr+"?land_id="+land_id);
             conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(5000);
             conn.setReadTimeout(30000);

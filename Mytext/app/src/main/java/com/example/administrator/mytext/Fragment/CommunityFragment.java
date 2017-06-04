@@ -1,7 +1,10 @@
 package com.example.administrator.mytext.Fragment;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.administrator.mytext.Activity_Map;
+import com.example.administrator.mytext.DetailOfForest;
 import com.example.administrator.mytext.MainActivity;
 import com.example.administrator.mytext.R;
 
@@ -30,18 +34,44 @@ public class CommunityFragment extends Fragment implements ViewPager.OnPageChang
     private ImageView[] tips;
     private ImageView[] mImageViews;
     private int[] imgIdArray;
-    private ImageView btn_toMap;
+    private ImageView btn_toMap,btn_huati,btn_zhuanlan;
     @NonNull
     @Override
     public View onCreateView(LayoutInflater inflater, @NonNull ViewGroup container, @NonNull Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.communityfragment, container, false);
 
         btn_toMap = (ImageView) view.findViewById(R.id.community_fujin);
+        btn_huati = (ImageView) view.findViewById(R.id.community_huati);
+        btn_zhuanlan = (ImageView) view.findViewById(R.id.community_zhuanti);
         btn_toMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),Activity_Map.class);
                 startActivity(intent);
+            }
+        });
+
+        btn_huati.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                dialog.setTitle("提示");
+                dialog.setMessage("该功能正在开发中......");
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("确认",null);
+                dialog.show();
+            }
+        });
+
+        btn_zhuanlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                dialog.setTitle("提示");
+                dialog.setMessage("该功能正在开发中......");
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("确认",null);
+                dialog.show();
             }
         });
 

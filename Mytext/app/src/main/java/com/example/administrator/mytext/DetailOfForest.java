@@ -4,14 +4,20 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Base64;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,14 +30,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.example.administrator.mytext.Database.CommonRequest;
+import com.example.administrator.mytext.Database.Constant;
 import com.example.administrator.mytext.Fragment.FragmentForDetail.Forest_Introduction;
 import com.example.administrator.mytext.Fragment.FragmentForDetail.Forest_basicInfomation;
 import com.example.administrator.mytext.Fragment.FragmentForDetail.Forest_more;
 
-import org.w3c.dom.Text;
-
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class DetailOfForest extends FragmentActivity implements ViewPager.OnPageChangeListener{
@@ -41,6 +55,27 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
     private int[] imgIdArray;
     private TextView tv_landName,tv_landID,tv_landPrice,tv_landReleaseTime;
     private TextView test;
+    private ImageView img;
+
+
+    private Handler handler = new Handler()
+    {
+        public void handleMessage(Message msg) {
+            switch(msg.what)
+            {
+                case 1:
+                    img.setImageBitmap(String2Bitmap(msg.obj.toString()));
+
+                    break;
+
+
+
+            }
+
+        }
+
+
+    };
 
     /**
      * s三个导航按钮
@@ -79,6 +114,8 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_forest);
 
+        img = (ImageView)findViewById(R.id.test_pic);
+
         btn_forest_intro = (Button)findViewById(R.id.forest_introduction);
         btn_basic_info = (Button)findViewById(R.id.forest_basic_information);
         btn_forest_more = (Button)findViewById(R.id.forest_more);
@@ -88,7 +125,7 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
         tv_landReleaseTime = (TextView)findViewById(R.id.land_release_time);
         viewPager = (ViewPager) findViewById(R.id.viewPager2);
         ViewGroup group = (ViewGroup) findViewById(R.id.viewGroup2);
-        imgIdArray = new int[]{R.drawable.forest1,R.drawable.example_1,R.drawable.example_3,R.drawable.example_2};
+        imgIdArray = new int[]{R.drawable.blank};
         tips = new ImageView[imgIdArray.length];
 
         btn_basic_info.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +167,7 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
         /**
          * 接收上一个活动的数据
          * */
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         final String land_id = intent.getStringExtra("land_id");
         String land_position = intent.getStringExtra("land_position");
         String land_use = intent.getStringExtra("land_use");
@@ -150,6 +187,56 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
         final String land_vr = intent.getStringExtra("land_vr");
         final String land_phone = intent.getStringExtra("land_phone");
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String land_id = intent.getStringExtra("land_id");
+                    final String[] id = {land_id};
+
+                    try {
+                        id[0] = URLEncoder.encode(id[0], "utf-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    HttpURLConnection connection = null;
+                    CommonRequest request = new CommonRequest();
+                    URL url = new URL(Constant.URL_Download + "?land_id=" + id[0]);
+                    connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestProperty("Content-Type", "application/json;charset=utf-8");
+                    connection.setRequestMethod("POST");
+                    connection.setConnectTimeout(8000);
+                    connection.setReadTimeout(8000);
+                    connection.setDoOutput(true);
+                    connection.setDoInput(true);
+                    DataOutputStream out = new DataOutputStream(connection.getOutputStream());
+                    out.writeBytes(request.getJsonStr());
+                    out.flush();
+                    StringBuilder response = new StringBuilder();
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == HttpURLConnection.HTTP_OK)
+                    {
+                        InputStream in = connection.getInputStream();
+                        BufferedReader read = new BufferedReader(new InputStreamReader(in));
+                        String line;
+                        while((line = read.readLine()) != null) {
+                            response.append(line);
+                        }
+
+                    }
+                    Message message = new Message();
+                    message.what = 1;
+                    message.obj = response.toString();
+                    handler.sendMessage(message);
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                }
+
+            }
+        }).start();
+
+
         btn_contact_2 = (Button)findViewById(R.id.btn_two);
         btn_contact_3 = (Button)findViewById(R.id.btn_three);
         btn_to_chat = (Button)findViewById(R.id.btn_four);
@@ -164,8 +251,8 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+land_phone));
-                        startActivity(intent);
+                        Intent intent2 = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+land_phone));
+                        startActivity(intent2);
                         finish();
                     }
                 });
@@ -184,8 +271,8 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+land_phone));
-                        startActivity(intent);
+                        Intent intent3 = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+land_phone));
+                        startActivity(intent3);
                         finish();
                     }
                 });
@@ -196,9 +283,9 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
         btn_to_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                intent.putExtra("chat_message",1);
-                startActivity(intent);
+                Intent intent4 = new Intent(getApplicationContext(),MainActivity.class);
+                intent4.putExtra("chat_message",1);
+                startActivity(intent4);
             }
         });
         btn_vr = (Button)findViewById(R.id.detail_btn_vr);
@@ -415,6 +502,14 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
         overridePendingTransition(R.anim.push_right_in,
                 R.anim.push_right_out);
     }
+
+
+    public static Bitmap String2Bitmap(String pic) {
+        byte[] bytes = Base64.decode(pic, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+        return bitmap;
+    }
+
     public void back(View view)
     {
         overridePendingTransition(R.anim.push_right_in,

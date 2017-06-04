@@ -1,6 +1,7 @@
 package com.example.administrator.mytext.Fragment;
 
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ public class SmallFragment extends Fragment{
     {
         View view = inflater.inflate(R.layout.viewpager_button, container, false);
 
+
         Button btn_all = (Button)view.findViewById(R.id.btn_all);
         btn_all.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +39,20 @@ public class SmallFragment extends Fragment{
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Activity_Search.class);
                 startActivity(intent);
+            }
+        });
+
+
+        Button btn_seek_price = (Button)view.findViewById(R.id.btn_seek_price);
+        btn_seek_price.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                dialog.setTitle("提示");
+                dialog.setMessage("该功能正在开发中......");
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("确认",null);
+                dialog.show();
             }
         });
         return view;
