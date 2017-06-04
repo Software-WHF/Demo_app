@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/administrator/mytext/Activity_outflow_publish.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/administrator/mytext/Activity_outflow_publish.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/add_picture.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/budget.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/purpose_false.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/purpose_ture.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/style_year_false.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/style_year_ture.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/test.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_outfolw_publish.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/logo.png" charset="GBK" />
   </component>

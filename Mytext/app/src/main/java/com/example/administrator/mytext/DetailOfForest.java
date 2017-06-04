@@ -2,7 +2,6 @@ package com.example.administrator.mytext;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -25,21 +24,22 @@ import com.example.administrator.mytext.Fragment.FragmentForDetail.Forest_Introd
 import com.example.administrator.mytext.Fragment.FragmentForDetail.Forest_basicInfomation;
 import com.example.administrator.mytext.Fragment.FragmentForDetail.Forest_more;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class DetailOfForest extends FragmentActivity implements ViewPager.OnPageChangeListener{
-
     private ViewPager viewPager;
     private ImageView[] tips;
     private ImageView[] mImageViews;
     private int[] imgIdArray;
-    private TextView tv_landName;
+    private TextView tv_landName,tv_landID,tv_landPrice,tv_landReleaseTime;
     private TextView test;
 
     /**
-    * s三个导航按钮
+     * s三个导航按钮
      * */
     private Button btn_basic_info;
     private Button btn_forest_intro;
@@ -62,7 +62,7 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
 
     /**
      覆盖层
-    */
+     */
     ImageView imageviewOvertab;
     //屏幕宽度
     int screenWidth;
@@ -79,9 +79,12 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
         btn_basic_info = (Button)findViewById(R.id.forest_basic_information);
         btn_forest_more = (Button)findViewById(R.id.forest_more);
         tv_landName = (TextView)findViewById(R.id.detail_forest_name) ;
+        tv_landPrice = (TextView)findViewById(R.id.detail_price);
+        tv_landID = (TextView)findViewById(R.id.land_id);
+        tv_landReleaseTime = (TextView)findViewById(R.id.land_release_time);
         viewPager = (ViewPager) findViewById(R.id.viewPager2);
         ViewGroup group = (ViewGroup) findViewById(R.id.viewGroup2);
-        imgIdArray = new int[]{R.drawable.forest1,R.drawable.forest2,R.drawable.forstr3,R.drawable.forset4};
+        imgIdArray = new int[]{R.drawable.forest1,R.drawable.example_2,R.drawable.example_4,R.drawable.example_5};
         tips = new ImageView[imgIdArray.length];
 
         btn_basic_info.setOnClickListener(new View.OnClickListener() {
@@ -137,7 +140,13 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
         String land_environment = intent.getStringExtra("land_environment");
         String land_management = intent.getStringExtra("land_management");
         String land_policy = intent.getStringExtra("land_policy");
-        tv_landName.setText(land_id);
+        String land_release_time = intent.getStringExtra("land_release_time");
+        String land_inner_id = intent.getStringExtra("land_inner_id");
+        String land_price = intent.getStringExtra("land_price");
+        tv_landName.setText(land_inner_id);
+        tv_landID.setText("ID："+land_id);
+        tv_landPrice.setText(land_price+"元");
+        tv_landReleaseTime.setText(" "+land_release_time);
 
         Bundle bundle1 = new Bundle();
         bundle1.putString("area",land_area);
@@ -270,7 +279,7 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
         imageviewOvertab.startAnimation(translateAnimation);
     }
 
-     //手动设置ViewPager要显示的视图
+    //手动设置ViewPager要显示的视图
     private void changeView(int desTab)
     {
         mViewPager.setCurrentItem(desTab, true);

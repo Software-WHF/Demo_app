@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
-            android:id="@+id/RL1"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/top">
+        android:id="@+id/RL1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/top">
         <ImageButton
             android:id="@+id/top_back"
             android:layout_width="14dp"
@@ -54,29 +53,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="0dp">
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewPager2"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp" />
-            <RelativeLayout
-                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
-                <LinearLayout
-                    android:id="@+id/viewGroup2"
+                android:orientation="vertical"
+                android:layout_marginTop="0dp">
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp" />
+                <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="185dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal" >
-                </LinearLayout>
-            </RelativeLayout>
-        </FrameLayout>
+                    android:orientation="vertical" >
+                    <LinearLayout
+                        android:id="@+id/viewGroup2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="185dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout>
+            </FrameLayout>
 
 
             <!-- 林地信息-->
@@ -92,7 +91,7 @@
                     android:layout_marginLeft="10dp"
                     android:textColor="#FF0000"
                     android:textStyle="bold"
-                    android:text="面议"/>
+                    />
                 <TextView
                     android:id="@+id/detail_forest_name"
                     android:layout_width="wrap_content"
@@ -100,8 +99,7 @@
                     android:layout_above="@id/detail_price"
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold"
-                    android:text="forestName"
-                    android:textColor="#000000"/>
+                    android:text="forestName"/>
                 <ImageView
                     android:id="@+id/Img_viewTimes"
                     android:layout_width="14dp"
@@ -125,6 +123,7 @@
                     android:layout_toRightOf="@id/Tv_viewTimes"
                     android:background="@drawable/uploadtime"/>
                 <TextView
+                    android:id="@+id/land_release_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/detail_price"
@@ -143,8 +142,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/detail_price"
                     android:layout_alignParentRight="true"
-                    android:text="ID:5623"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/land_id"
+                    android:layout_marginRight="15dp"
                     android:textSize="10dp"/>
             </RelativeLayout>
             <ImageView
@@ -158,42 +157,39 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                <LinearLayout
-                    android:id="@+id/ll_tabs"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-                    <Button
-                        android:id="@+id/forest_basic_information"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:textColor="@color/grey"
-                        android:text="林地基本信息"/>
-                    <Button
-                        android:id="@+id/forest_introduction"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:textColor="@color/grey"
-                        android:text="林地介绍"/>
-                    <Button
-                        android:id="@+id/forest_more"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:textColor="@color/grey"
-                        android:text="林地更多参数"/>
-                </LinearLayout>
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/viewpager"
-                    android:layout_below="@+id/ll_tabs"
-                    android:layout_marginBottom="2dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    <LinearLayout
+                        android:id="@+id/ll_tabs"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+                        <Button
+                            android:id="@+id/forest_basic_information"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:text="林地基本信息"/>
+                        <Button
+                            android:id="@+id/forest_introduction"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:text="林地介绍"/>
+                        <Button
+                            android:id="@+id/forest_more"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:text="林地更多参数"/>
+                    </LinearLayout>
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/viewpager"
+                        android:layout_below="@+id/ll_tabs"
+                        android:layout_marginBottom="2dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
                 </RelativeLayout>
                 <ImageView
                     android:id="@+id/imgv_overtab"

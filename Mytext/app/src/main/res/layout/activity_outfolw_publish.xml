@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
@@ -169,7 +168,7 @@
                     android:layout_marginTop="17dp"
                     android:layout_marginRight="15dp"
                     />
-                </RelativeLayout>
+            </RelativeLayout>
             <ImageView
                 android:id="@+id/no_use_line4"
                 android:layout_width="match_parent"
@@ -260,7 +259,7 @@
                     android:layout_height="10dp"
                     android:layout_margin="15dp"
                     android:background="@drawable/green_circle"
-                />
+                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -268,7 +267,7 @@
                     android:layout_marginTop="11dp"
                     android:text="流转方式"
                     android:textColor="#000000"
-                />
+                    />
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="10dp"
@@ -276,7 +275,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="17dp"
                     android:layout_marginRight="15dp"/>
-                </RelativeLayout>
+            </RelativeLayout>
             <ImageView
                 android:id="@+id/no_use_line7"
                 android:layout_width="match_parent"
@@ -326,7 +325,7 @@
                 android:layout_marginLeft="200dp"
                 android:background="@null"
                 android:textColorHint="@color/grey"
-                android:hint="请输入面积大小"
+                android:hint="请输入年份"
                 android:singleLine="true"
                 />
             <ImageView
@@ -441,7 +440,7 @@
                 android:layout_below="@id/no_use_line12"
                 android:text="添加照片"
                 android:textColor="#000000"
-                />
+                android:id="@+id/textView4" />
             <ImageView
                 android:id="@+id/add_picture"
                 android:layout_height="60dp"
@@ -449,7 +448,9 @@
                 android:background="@drawable/add_picture"
                 android:layout_below="@+id/no_use_line12"
                 android:layout_marginLeft="15dp"
+                android:clickable="true"
                 android:layout_marginTop="40dp"/>
+
             <ImageView
                 android:id="@+id/no_use_line13"
                 android:layout_width="match_parent"
@@ -651,36 +652,38 @@
                 android:layout_marginBottom="15dp"
                 />
 
+            <ImageView
+                android:id="@+id/my_picture"
+                android:layout_height="60dp"
+                android:layout_width="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_above="@+id/no_use_line13"
+                android:layout_toEndOf="@+id/add_picture" />
 
+            <ImageView
+                android:id="@+id/my_picture2"
+                android:layout_height="60dp"
+                android:layout_width="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_above="@+id/no_use_line13"
+                android:layout_toEndOf="@+id/my_picture" />
 
+            <ImageView
+                android:id="@+id/my_picture3"
+                android:layout_height="60dp"
+                android:layout_width="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_above="@+id/no_use_line13"
+                android:layout_toEndOf="@+id/my_picture2"
+                android:layout_marginStart="11dp" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <ImageView
+                android:id="@+id/my_picture4"
+                android:layout_height="60dp"
+                android:layout_width="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_above="@+id/no_use_line13"
+                android:layout_toEndOf="@+id/my_picture3" />
 
 
         </RelativeLayout>

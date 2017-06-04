@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/RLkk"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/top">
+        <ImageButton
+            android:id="@+id/top_back"
+            android:layout_width="14dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="20dip"
+            android:background="@drawable/back"
+            android:layout_centerVertical="true"
+            android:onClick="back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/top_back"
+            android:layout_marginLeft="10dip"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:onClick="back"/>
+        <ImageButton
+            android:id="@+id/top_more"
+            android:layout_width="23dp"
+            android:layout_height="5dp"
+            android:layout_marginRight="18dip"
+            android:background="@drawable/more"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <TextView
+               android:layout_marginTop="10dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="林权流转需要注意事项"
+               android:textSize="17dp"
+               android:textColor="@color/black"
+               android:gravity="center"
+               android:layout_marginBottom="5dp"
+               />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="      集体林权流转是指在不改变林地所有权和林地用途的前提下，林权权利人将其拥有的集体林地经营权、林木所有权、林木使用权依法全部或者部分转移给他人的行为，不包括依法征收致使林地经营权发生转移的情形。
+
+        近日，林业部出台了《关于规范集体林权流转市场运行的意见》，规范了林权流转的注意事项，避免各种流转“乱象”。如果你家中有林地要流转，那么下面这几个注意事项一定要留意，不然就会违法。"/>
+
+       </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

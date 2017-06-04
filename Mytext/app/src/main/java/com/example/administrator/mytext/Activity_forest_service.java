@@ -1,10 +1,12 @@
 package com.example.administrator.mytext;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +60,8 @@ public class Activity_forest_service extends FragmentActivity implements ViewPag
     //当前选中的项
     int currenttab=-1;
 
+    private FragmentTransaction transaction;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +95,8 @@ public class Activity_forest_service extends FragmentActivity implements ViewPag
         imageParams.topMargin = 314;
         imageviewOvertab.setLayoutParams(imageParams);
         mViewPager.setAdapter(new MyFrageStatePagerAdapter(getSupportFragmentManager()));
+
+
     }
 
     private void imageMove(int moveToTab)

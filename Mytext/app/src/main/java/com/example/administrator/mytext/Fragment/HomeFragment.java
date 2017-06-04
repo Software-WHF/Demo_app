@@ -2,6 +2,7 @@ package com.example.administrator.mytext.Fragment;
 
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,10 +24,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.view.ViewGroup.LayoutParams;
 
+import com.example.administrator.mytext.Activity_Policy;
 import com.example.administrator.mytext.Activity_Search;
 import com.example.administrator.mytext.Activity_allForest;
 import com.example.administrator.mytext.Activity_forest_service;
@@ -59,12 +62,57 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
     private EditText ET_top_serch;
 
     private ImageButton forest_service;
+
+    private RelativeLayout rl_policy;
+
+    private ImageButton btn_common_problem,btn_lastest_forest;
+    private TextView tv_common_problem,tv_latest_forest;
     @NonNull
     @Override
     public View onCreateView(LayoutInflater inflater, @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.homefragment, container, false);
 
+        btn_common_problem = (ImageButton)view.findViewById(R.id.common_problems);
+        tv_common_problem = (TextView)view.findViewById(R.id.tv_common_problems);
+        btn_lastest_forest = (ImageButton)view.findViewById(R.id.latest_info);
+        tv_latest_forest = (TextView)view.findViewById(R.id.tv_latest_info);
+        btn_common_problem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),Activity_forest_service.class);
+                startActivity(intent);
+            }
+        });
+        tv_common_problem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),Activity_forest_service.class);
+                startActivity(intent);
+            }
+        });
+        btn_lastest_forest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),Activity_allForest.class);
+                startActivity(intent);
+            }
+        });
+        tv_latest_forest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),Activity_allForest.class);
+                startActivity(intent);
+            }
+        });
+        rl_policy = (RelativeLayout)view.findViewById(R.id.home_RL_policy);
+        rl_policy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Activity_Policy.class);
+                startActivity(intent);
+            }
+        });
         ScrollView scrollView = (ScrollView)view.findViewById(R.id.scrollview_hf);
         scrollView.smoothScrollTo(0,20);
         ET_top_serch = (EditText)view.findViewById(R.id.search_edittext);
@@ -108,7 +156,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
 
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         ViewGroup group = (ViewGroup) view.findViewById(R.id.viewGroup);
-        imgIdArray = new int[]{R.drawable.forest1, R.drawable.forest2, R.drawable.forstr3, R.drawable.forset4};
+        imgIdArray = new int[]{R.drawable.example_3, R.drawable.example_4,R.drawable.example_2,R.drawable.example_5};
         tips = new ImageView[imgIdArray.length];
         for (int i = 0; i < tips.length; i++) {
             ImageView imageView = new ImageView(getContext());
