@@ -81,6 +81,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),Activity_forest_service.class);
+                intent.putExtra("baike",1);
                 startActivity(intent);
             }
         });
@@ -88,6 +89,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),Activity_forest_service.class);
+                intent.putExtra("baike2",1);
                 startActivity(intent);
             }
         });
@@ -156,7 +158,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
 
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         ViewGroup group = (ViewGroup) view.findViewById(R.id.viewGroup);
-        imgIdArray = new int[]{R.drawable.example_3, R.drawable.example_4,R.drawable.example_2,R.drawable.example_5};
+        imgIdArray = new int[]{R.drawable.forest2, R.drawable.forest4,R.drawable.forest5,R.drawable.forest1};
         tips = new ImageView[imgIdArray.length];
         for (int i = 0; i < tips.length; i++) {
             ImageView imageView = new ImageView(getContext());

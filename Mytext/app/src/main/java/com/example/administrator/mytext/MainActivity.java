@@ -1,5 +1,6 @@
 package com.example.administrator.mytext;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private CommunityFragment communityFragment = new CommunityFragment();
     private MessageFragment messageFragment = new MessageFragment();
     private MineFragment mineFragment = new MineFragment();
+    FragmentManager fm = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         fragments = getFragments();
         setDefaultFragment();
         bottomNavigationBar.setTabSelectedListener(this);
+
+        Intent intent = getIntent();
+        int chat_message = intent.getIntExtra("chat_message",-1);
+        if (chat_message == 1)
+        {
+            FragmentTransaction transaction = fm.beginTransaction();
+            transaction.replace(R.id.layFrame, messageFragment);
+            transaction.commit();
+        }
 
     }
     private ArrayList<Fragment> getFragments(){

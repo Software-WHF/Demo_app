@@ -32,13 +32,13 @@ public class Forest_more extends Fragment {
         super.onActivityCreated(savedInstanceState);
         init();
         String credential1 = getArguments().getString("credential");
-        String soil_condition1 = getArguments().getString("soil_condition");
         String equipment1 = getArguments().getString("equipment");
         String environment1 = getArguments().getString("environment");
         String management1 = getArguments().getString("management");
         String policy1 = getArguments().getString("policy");
+        String detial1 = getArguments().getString("detail");
         credential.setText(credential1);
-        soil_condition.setText(soil_condition1);
+        soil_condition.setText(detial1);
         equipment.setText(equipment1);
         environment.setText(environment1);
         management.setText(management1);

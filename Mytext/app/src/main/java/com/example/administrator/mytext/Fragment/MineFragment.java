@@ -45,7 +45,7 @@ public class MineFragment extends Fragment {
                 Now_user.User_pwd = "";
                 AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
                 dialog.setTitle("提示");
-                dialog.setMessage("恭喜你，注销账号成功");
+                dialog.setMessage("注销账号成功");
                 dialog.setCancelable(true);
                 dialog.setPositiveButton("确认",null);
                 dialog.show();
@@ -63,14 +63,14 @@ public class MineFragment extends Fragment {
         dialog.setPositiveButton("登录", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getActivity(), Activity_Register_Login.class);
+                Intent intent = new Intent(getContext(), Activity_Register_Login.class);
                 startActivity(intent);
             }
         });
         dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getContext(), MainActivity.class);
                 startActivity(intent);
             }
         });

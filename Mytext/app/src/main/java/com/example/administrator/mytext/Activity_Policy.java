@@ -1,6 +1,7 @@
 package com.example.administrator.mytext;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 
 /**
@@ -21,10 +23,13 @@ public class Activity_Policy extends Activity  implements ViewPager.OnPageChange
     private ImageView[] tips;
     private ImageView[] mImageViews;
     private int[] imgIdArray;
+
+    private RelativeLayout rl_policy_test;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_policy);
+
         viewpager = (ViewPager)findViewById(R.id.viewpager_policy);
         ViewGroup group = (ViewGroup)findViewById(R.id.viewGroup_policy);
         imgIdArray = new int[]{ R.drawable.policy_1,R.drawable.policy_2};
@@ -84,6 +89,14 @@ public class Activity_Policy extends Activity  implements ViewPager.OnPageChange
         viewpager.setOnPageChangeListener(this);
         viewpager.setCurrentItem((mImageViews.length) * 100);
 
+        rl_policy_test = (RelativeLayout)findViewById(R.id.rl_policy_test1);
+        rl_policy_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Activity_Policy_2.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public class MyAdapter extends PagerAdapter {

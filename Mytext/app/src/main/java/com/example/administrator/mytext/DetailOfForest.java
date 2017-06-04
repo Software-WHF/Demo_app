@@ -1,7 +1,10 @@
 package com.example.administrator.mytext;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -19,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.mytext.Fragment.FragmentForDetail.Forest_Introduction;
 import com.example.administrator.mytext.Fragment.FragmentForDetail.Forest_basicInfomation;
@@ -69,11 +73,11 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
     //当前选中的项
     int currenttab=-1;
 
+    private Button btn_vr,btn_contact_2,btn_contact_3,btn_to_chat;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_forest);
-
 
         btn_forest_intro = (Button)findViewById(R.id.forest_introduction);
         btn_basic_info = (Button)findViewById(R.id.forest_basic_information);
@@ -84,7 +88,7 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
         tv_landReleaseTime = (TextView)findViewById(R.id.land_release_time);
         viewPager = (ViewPager) findViewById(R.id.viewPager2);
         ViewGroup group = (ViewGroup) findViewById(R.id.viewGroup2);
-        imgIdArray = new int[]{R.drawable.forest1,R.drawable.example_2,R.drawable.example_4,R.drawable.example_5};
+        imgIdArray = new int[]{R.drawable.forest1,R.drawable.example_1,R.drawable.example_3,R.drawable.example_2};
         tips = new ImageView[imgIdArray.length];
 
         btn_basic_info.setOnClickListener(new View.OnClickListener() {
@@ -127,22 +131,97 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
          * 接收上一个活动的数据
          * */
         Intent intent = getIntent();
-        String land_id = intent.getStringExtra("land_id");
+        final String land_id = intent.getStringExtra("land_id");
         String land_position = intent.getStringExtra("land_position");
         String land_use = intent.getStringExtra("land_use");
         String land_area = intent.getStringExtra("land_area");
-        String land_purchase_method = intent.getStringExtra("land_purchase_method");
+        String land_way = intent.getStringExtra("land_way");
         String land_time = intent.getStringExtra("land_time");
         String land_introduction = intent.getStringExtra("land_introduction");
         String land_credential = intent.getStringExtra("land_credential");
-        String land_soil_condition = intent.getStringExtra("land_soil_condition");
         String land_equipment = intent.getStringExtra("land_equipment");
         String land_environment = intent.getStringExtra("land_environment");
         String land_management = intent.getStringExtra("land_management");
         String land_policy = intent.getStringExtra("land_policy");
         String land_release_time = intent.getStringExtra("land_release_time");
-        String land_inner_id = intent.getStringExtra("land_inner_id");
+        final String land_inner_id = intent.getStringExtra("land_inner_id");
         String land_price = intent.getStringExtra("land_price");
+        String land_detail = intent.getStringExtra("land_detail");
+        final String land_vr = intent.getStringExtra("land_vr");
+        final String land_phone = intent.getStringExtra("land_phone");
+
+        btn_contact_2 = (Button)findViewById(R.id.btn_two);
+        btn_contact_3 = (Button)findViewById(R.id.btn_three);
+        btn_to_chat = (Button)findViewById(R.id.btn_four);
+        btn_contact_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(DetailOfForest.this);
+                dialog.setTitle("提示");
+                dialog.setMessage("联系电话:"+land_phone);
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("确认",new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+land_phone));
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                dialog.setNegativeButton("取消",null);
+                dialog.show();
+            }
+        });
+        btn_contact_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(DetailOfForest.this);
+                dialog.setTitle("提示");
+                dialog.setMessage("预约电话:"+land_phone);
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("确认",new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+land_phone));
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                dialog.setNegativeButton("取消",null);
+                dialog.show();
+            }
+        });
+        btn_to_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                intent.putExtra("chat_message",1);
+                startActivity(intent);
+            }
+        });
+        btn_vr = (Button)findViewById(R.id.detail_btn_vr);
+        btn_vr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (land_vr == null) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(DetailOfForest.this);
+                    dialog.setTitle("提示");
+                    dialog.setMessage("尚未添加！");
+                    dialog.setCancelable(false);
+                    dialog.setPositiveButton("确认", null);
+                    dialog.show();
+                }
+                else {
+                    Intent intent = new Intent(getApplication(), Activity_VR_view.class);
+                    intent.putExtra("land_vr", land_vr);
+                    intent.putExtra("land_inner_id", land_inner_id);
+                    startActivity(intent);
+                }
+            }
+        });
+
         tv_landName.setText(land_inner_id);
         tv_landID.setText("ID："+land_id);
         tv_landPrice.setText(land_price+"元");
@@ -150,17 +229,17 @@ public class DetailOfForest extends FragmentActivity implements ViewPager.OnPage
 
         Bundle bundle1 = new Bundle();
         bundle1.putString("area",land_area);
-        bundle1.putString("method",land_purchase_method);
+        bundle1.putString("way",land_way);
         bundle1.putString("position",land_position);
         bundle1.putString("time",land_time);
         bundle1.putString("use",land_use);
         bundle1.putString("introduction",land_introduction);
         bundle1.putString("credential",land_credential);
-        bundle1.putString("soil_condition",land_soil_condition);
         bundle1.putString("equipment",land_equipment);
         bundle1.putString("environment",land_environment);
         bundle1.putString("management",land_management);
         bundle1.putString("policy",land_policy);
+        bundle1.putString("detail",land_detail);
         forest_basicInfomation.setArguments(bundle1);
         forest_introduction.setArguments(bundle1);
         forest_more.setArguments(bundle1);

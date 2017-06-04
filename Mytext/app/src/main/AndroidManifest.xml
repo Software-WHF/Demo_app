@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -57,7 +58,9 @@
         <activity android:name=".Fragment.FragmentForForestService.Activity_thxmkf"/>
         <activity android:name=".Activity_Register_Login"/>
         <activity android:name=".Activity_Policy"/>
+        <activity android:name=".Activity_Policy_2"/>
         <activity android:name=".Fragment.FragmentForForestService.Activity_attention"/>
+        <activity android:name=".Activity_VR_view"/>
 
         <service android:name="com.baidu.location.f"
             android:enabled="true"

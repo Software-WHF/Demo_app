@@ -53,12 +53,13 @@ public class Activity_outflow_publish extends Activity {
     public Button btn_ok;
     public ImageView add_picture,My_picture,My_picture2,My_picture3,My_picture4;
     public String imagePath = "",result = "";
+    public EditText edit_liu_zhuan_fang_shi,edit_quan_zheng,edit_edit_pei_tao,edit_zhou_bian,edit_jin_ying,edit_hui_nong,edit_vr;
     private Handler handler = new Handler()
     {
         public void handleMessage(Message msg) {
             switch(msg.what)
             {
-                case 1:
+                case 2:
                     if(msg.obj.toString().trim().equals("1"))
                     {
                         AlertDialog.Builder dialog = new AlertDialog.Builder(Activity_outflow_publish.this);
@@ -107,6 +108,15 @@ public class Activity_outflow_publish extends Activity {
         edit_jiesao = (EditText)findViewById(R.id.edit_jie_sao);
         edit_chengwei = (EditText)findViewById(R.id.edit_cheng_wei);
         edit_lian_xi_fang_shi = (EditText)findViewById(R.id.edit_lian_xi_fang_shi);
+
+        edit_liu_zhuan_fang_shi = (EditText)findViewById(R.id.edit_liu_zhuan_fang_shi);
+        edit_quan_zheng = (EditText)findViewById(R.id.edit_quan_zheng);
+        edit_edit_pei_tao = (EditText)findViewById(R.id.edit_pei_tao);
+        edit_zhou_bian = (EditText)findViewById(R.id.edit_zhou_bian);
+        edit_jin_ying = (EditText)findViewById(R.id.edit_jin_ying);
+        edit_hui_nong = (EditText)findViewById(R.id.edit_hui_nong);
+        edit_vr = (EditText)findViewById(R.id.edit_vr_lianjie);
+
         add_picture = (ImageView)findViewById(R.id.add_picture);
         My_picture = (ImageView)findViewById(R.id.my_picture);
         My_picture2 = (ImageView)findViewById(R.id.my_picture2);
@@ -162,6 +172,14 @@ public class Activity_outflow_publish extends Activity {
                     final String chengwei = edit_chengwei.getText().toString();
                     final String lianxifangshi = edit_lian_xi_fang_shi.getText().toString();
 
+                    final String liuzhuangfangshi = edit_liu_zhuan_fang_shi.getText().toString();
+                    final String quanzheng = edit_quan_zheng.getText().toString();
+                    final String peitao = edit_edit_pei_tao.getText().toString();
+                    final String zhoubian = edit_zhou_bian.getText().toString();
+                    final String jinying = edit_jin_ying.getText().toString();
+                    final String huinong = edit_hui_nong.getText().toString();
+                    final String vr_lianjie = edit_vr.getText().toString();
+
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -192,6 +210,15 @@ public class Activity_outflow_publish extends Activity {
                             final String[] result1 = {result};
                             final String[] release_time1 = {land_release_time};
 
+                            final String[] liuzhuangfangshi1 = {liuzhuangfangshi};
+                            final String[] quanzheng1 = {quanzheng};
+                            final String[] peitao1 = {peitao};
+                            final String[] zhoubian1 = {zhoubian};
+                            final String[] jinying1 = {jinying};
+                            final String[] huinong1 = {huinong};
+                            final String[] vr_lianjie1 = {vr_lianjie};
+
+
                             HttpURLConnection connection = null;
                             try {
                                 id[0] = URLEncoder.encode(id[0], "utf-8");
@@ -208,12 +235,21 @@ public class Activity_outflow_publish extends Activity {
                                 user_id[0] = URLEncoder.encode(user_id[0], "utf-8");
                                 release_time1[0] = URLEncoder.encode(release_time1[0], "utf-8");
 
+                                liuzhuangfangshi1[0] = URLEncoder.encode(liuzhuangfangshi1[0], "utf-8");
+                                quanzheng1[0] = URLEncoder.encode(quanzheng1[0], "utf-8");
+                                peitao1[0] = URLEncoder.encode(peitao1[0], "utf-8");
+                                zhoubian1[0] = URLEncoder.encode(zhoubian1[0], "utf-8");
+                                jinying1[0] = URLEncoder.encode(jinying1[0], "utf-8");
+                                huinong1[0] = URLEncoder.encode(huinong1[0], "utf-8");
+                                vr_lianjie1[0] = URLEncoder.encode(vr_lianjie1[0],"utf-8");
+
+
                             } catch (UnsupportedEncodingException e1) {
                                 // TODO Auto-generated catch block
                                 e1.printStackTrace();
                             }
                             try {
-                                URL url = new URL(Constant.URL_Addland + "?land_id=" + id[0] + "&land_position=" + quyu1[0] + "&land_use=" + yongtu1[0] + "&land_area=" + mianji1[0] + "&land_time=" + nianxian[0] + "&land_money=" + jiage1[0] + "&land_inner_id=" + biaoti1[0] + "&land_detail=" + xiangqing1[0] + "&land_introduction=" + jiesao1[0] + "&user_id=" + user_id[0] + "&user_name=" + chengwei1[0] + "&user_phone=" + lianxifangshi1[0]  + "&land_release_time=" + release_time1[0]);
+                                URL url = new URL(Constant.URL_Addland + "?land_id=" + id[0] + "&land_position=" + quyu1[0] + "&land_use=" + yongtu1[0] + "&land_area=" + mianji1[0] + "&land_time=" + nianxian[0] + "&land_money=" + jiage1[0] + "&land_inner_id=" + biaoti1[0] + "&land_detail=" + xiangqing1[0] + "&land_introduction=" + jiesao1[0] + "&user_id=" + user_id[0] + "&user_name=" + chengwei1[0] + "&user_phone=" + lianxifangshi1[0]  + "&land_release_time=" + release_time1[0]+ "&land_way=" + liuzhuangfangshi1[0]+ "&land_credential=" + quanzheng1[0]+ "&land_equipment=" + peitao1[0]+ "&land_environment=" + zhoubian1[0]+ "&land_mangement=" + jinying1[0]+ "&land_policy=" + huinong1[0] + "&land_vr=" + vr_lianjie1[0]);
                                 connection = (HttpURLConnection) url.openConnection();
                                 connection.setRequestMethod("GET");
                                 connection.setConnectTimeout(80000);
@@ -435,6 +471,12 @@ public class Activity_outflow_publish extends Activity {
         edit_jiesao.setText("");
         edit_chengwei.setText("");
         edit_lian_xi_fang_shi.setText("");
+        edit_liu_zhuan_fang_shi.setText("");
+        edit_quan_zheng.setText("");
+        edit_edit_pei_tao.setText("");
+        edit_zhou_bian.setText("");
+        edit_jin_ying.setText("");
+        edit_hui_nong.setText("");
         My_picture.setImageDrawable(null);
     }
 }

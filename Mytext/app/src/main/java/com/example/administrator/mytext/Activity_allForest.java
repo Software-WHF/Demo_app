@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.mytext.Adapter.Adapter_land;
 import com.example.administrator.mytext.Database.CommonRequest;
@@ -53,6 +54,7 @@ public class Activity_allForest extends Activity{
                     al = response.getDataList();
                     Adapter_land adapter = new Adapter_land(getApplicationContext(),R.layout.land_item,al);
                     lv_land.setAdapter(adapter);
+
                     break;
 
             }
@@ -121,18 +123,21 @@ public class Activity_allForest extends Activity{
                 intent.putExtra("land_position",land.getLand_position() );
                 intent.putExtra("land_use",land.getLand_use() );
                 intent.putExtra("land_area",land.getLand_area());
-                //intent.putExtra("land_purchase_method",land.getLand_purchase_method());
+                intent.putExtra("land_way",land.getLand_way());
                 intent.putExtra("land_time",land.getLand_time());
                 intent.putExtra("land_introduction",land.getLand_introduction());
                 intent.putExtra("land_release_time",land.gelLand_release_time());
                 intent.putExtra("land_inner_id",land.getLand_inner_id());
                 intent.putExtra("land_price",land.getLand_money());
-                //intent.putExtra("land_credential",land.getLand_credential());
-                //intent.putExtra("land_soil_condition",land.getLand_soil_condition());
-                //intent.putExtra("land_equipment",land.getLand_equipment());
-                //intent.putExtra("land_environment",land.getLand_environment());
-                //intent.putExtra("land_management",land.getLand_management());
-                //intent.putExtra("land_policy",land.getLand_policy());
+                intent.putExtra("land_credential",land.getLand_credential());
+                intent.putExtra("land_equipment",land.getLand_equipment());
+                intent.putExtra("land_environment",land.getLand_environment());
+                intent.putExtra("land_management",land.getLand_mangement());
+                intent.putExtra("land_policy",land.getLand_policy());
+                intent.putExtra("land_detail",land.getLand_detail());
+                intent.putExtra("land_vr",land.getLand_vr());
+                intent.putExtra("land_phone",land.getUser_phone());
+
                 startActivity(intent);
 
             }

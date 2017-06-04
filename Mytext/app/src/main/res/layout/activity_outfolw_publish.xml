@@ -268,13 +268,18 @@
                     android:text="流转方式"
                     android:textColor="#000000"
                     />
-                <ImageView
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:background="@drawable/right_arrow"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="17dp"
-                    android:layout_marginRight="15dp"/>
+                <EditText
+                    android:id="@+id/edit_liu_zhuan_fang_shi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textSize="12dp"
+                    android:layout_marginLeft="200dp"
+                    android:background="@null"
+                    android:textColorHint="@color/grey"
+                    android:hint="请输入流转方式"
+                    android:singleLine="true"
+                    />
             </RelativeLayout>
             <ImageView
                 android:id="@+id/no_use_line7"
@@ -283,13 +288,199 @@
                 android:background="@drawable/gray_line"
                 android:layout_below="@+id/rl_liu_zhuan"
                 />
+            <ImageView
+                android:id="@+id/no_use_circle15"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@+id/no_use_line7"
+                android:layout_margin="15dp"
+                android:background="@drawable/green_circle"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+                android:layout_below="@id/no_use_line7"
+                android:text="权证信息"
+                android:textColor="#000000"
+                />
+            <EditText
+                android:id="@+id/edit_quan_zheng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/no_use_line7"
+                android:layout_marginTop="12dp"
+                android:textSize="12dp"
+                android:layout_marginLeft="200dp"
+                android:background="@null"
+                android:textColorHint="@color/grey"
+                android:hint="请输入权证信息"
+                android:singleLine="true"
+                />
+            <ImageView
+                android:id="@+id/no_use_line20"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gray_line"
+                android:layout_below="@+id/no_use_circle15"
+                />
+            <ImageView
+                android:id="@+id/no_use_circle16"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@+id/no_use_line20"
+                android:layout_margin="15dp"
+                android:background="@drawable/green_circle"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+                android:layout_below="@id/no_use_line20"
+                android:text="配套设施"
+                android:textColor="#000000"
+                />
+            <EditText
+                android:id="@+id/edit_pei_tao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/no_use_line20"
+                android:layout_marginTop="12dp"
+                android:textSize="12dp"
+                android:layout_marginLeft="200dp"
+                android:background="@null"
+                android:textColorHint="@color/grey"
+                android:hint="请输入配套设施"
+                android:singleLine="true"
+                />
+            <ImageView
+                android:id="@+id/no_use_line21"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gray_line"
+                android:layout_below="@+id/no_use_circle16"
+                />
+            <ImageView
+                android:id="@+id/no_use_circle17"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@+id/no_use_line21"
+                android:layout_margin="15dp"
+                android:background="@drawable/green_circle"
+                />
+            <ImageView
+                android:id="@+id/no_use_line22"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gray_line"
+                android:layout_below="@+id/no_use_circle17"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+                android:layout_below="@id/no_use_line21"
+                android:text="周边环境"
+                android:textColor="#000000"
+                />
+            <EditText
+                android:id="@+id/edit_zhou_bian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/no_use_line21"
+                android:layout_marginTop="12dp"
+                android:textSize="12dp"
+                android:layout_marginLeft="200dp"
+                android:background="@null"
+                android:textColorHint="@color/grey"
+                android:hint="请输入周边环境"
+                android:singleLine="true"
+                />
+            <ImageView
+                android:id="@+id/no_use_circle18"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@+id/no_use_line22"
+                android:layout_margin="15dp"
+                android:background="@drawable/green_circle"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+                android:layout_below="@id/no_use_line22"
+                android:text="经营现状"
+                android:textColor="#000000"
+                />
+            <EditText
+                android:id="@+id/edit_jin_ying"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/no_use_line22"
+                android:layout_marginTop="12dp"
+                android:textSize="12dp"
+                android:layout_marginLeft="200dp"
+                android:background="@null"
+                android:textColorHint="@color/grey"
+                android:hint="请输入经营现状"
+                android:singleLine="true"
+                />
+            <ImageView
+                android:id="@+id/no_use_line23"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gray_line"
+                android:layout_below="@+id/no_use_circle18"
+                />
+            <ImageView
+                android:id="@+id/no_use_circle19"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@+id/no_use_line23"
+                android:layout_margin="15dp"
+                android:background="@drawable/green_circle"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+                android:layout_below="@id/no_use_line23"
+                android:text="惠农政策"
+                android:textColor="#000000"
+                />
+            <EditText
+                android:id="@+id/edit_hui_nong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/no_use_line23"
+                android:layout_marginTop="12dp"
+                android:textSize="12dp"
+                android:layout_marginLeft="200dp"
+                android:background="@null"
+                android:textColorHint="@color/grey"
+                android:hint="请输入惠农政策"
+                android:singleLine="true"
+                />
+            <ImageView
+                android:id="@+id/no_use_line24"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gray_line"
+                android:layout_below="@+id/no_use_circle19"
+                />
+
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_margin="15dp"
                 android:text="流转年限及经费"
                 android:id="@+id/no_use_tv2"
-                android:layout_below="@+id/no_use_line7"
+                android:layout_below="@+id/no_use_line24"
                 />
             <ImageView
                 android:id="@+id/no_use_line8"
@@ -363,6 +554,7 @@
                 android:background="@null"
                 android:textColorHint="@color/grey"
                 android:hint="请输入价格(元)"
+                android:numeric="integer"
                 android:singleLine="true"
                 />
             <ImageView
@@ -459,6 +651,57 @@
                 android:layout_below="@+id/add_picture"
                 android:layout_marginTop="10dp"
                 />
+            <ImageView
+                android:id="@+id/no_use_circle20"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@+id/no_use_line13"
+                android:layout_margin="15dp"
+                android:background="@drawable/green_circle"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+                android:layout_below="@id/no_use_line13"
+                android:text="VR链接"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:layout_marginLeft="200dp"
+                android:background="@null"
+                android:textColorHint="@color/grey"
+                android:layout_below="@+id/no_use_line13"
+                android:layout_marginTop="12dp"
+                android:text="http://"
+                android:singleLine="true"
+                />
+            <EditText
+                android:id="@+id/edit_vr_lianjie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/no_use_line13"
+                android:layout_marginTop="12dp"
+                android:textSize="12dp"
+                android:layout_marginLeft="238dp"
+                android:background="@null"
+                android:textColorHint="@color/grey"
+                android:hint="请输入链接"
+                android:singleLine="true"
+                />
+
+
+            <ImageView
+                android:id="@+id/no_use_line25"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gray_line"
+                android:layout_below="@+id/no_use_circle20"
+                />
 
             <TextView
                 android:layout_height="wrap_content"
@@ -466,7 +709,7 @@
                 android:layout_margin="15dp"
                 android:text="林地简介"
                 android:id="@+id/no_use_tv4"
-                android:layout_below="@+id/no_use_line13"
+                android:layout_below="@+id/no_use_line25"
                 />
             <ImageView
                 android:id="@+id/no_use_line14"
@@ -630,6 +873,7 @@
                 android:background="@null"
                 android:textColorHint="@color/grey"
                 android:hint="请输入联系方式"
+                android:phoneNumber="true"
                 android:singleLine="true"
                 />
             <ImageView

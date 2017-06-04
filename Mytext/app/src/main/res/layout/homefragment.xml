@@ -129,7 +129,7 @@
                         android:layout_below="@id/LLL2"
                         android:id="@+id/viewpager3"
                         android:layout_width="match_parent"
-                        android:layout_height="90dp"/>
+                        android:layout_height="90dp" />
                 </RelativeLayout>
                 <ImageView
                     android:id="@+id/imgv_overtab"

@@ -14,6 +14,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.administrator.mytext.Fragment.FragmentForForestService.Forest_service_baike;
 import com.example.administrator.mytext.Fragment.FragmentForForestService.Forest_service_recommend;
@@ -96,7 +97,14 @@ public class Activity_forest_service extends FragmentActivity implements ViewPag
         imageviewOvertab.setLayoutParams(imageParams);
         mViewPager.setAdapter(new MyFrageStatePagerAdapter(getSupportFragmentManager()));
 
-
+        Intent intent = getIntent();
+        int data1 = intent.getIntExtra("baike",-1);
+        int data2 = intent.getIntExtra("baike2",-1);
+        if ( data1 == 1 || data2 == 1)
+        {
+  //          Toast.makeText(Activity_forest_service.this,"666",Toast.LENGTH_LONG);
+            changeView(1);
+        }
     }
 
     private void imageMove(int moveToTab)

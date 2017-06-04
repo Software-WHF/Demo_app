@@ -35,7 +35,7 @@ public class Forest_basicInfomation extends Fragment {
         super.onActivityCreated(savedInstanceState);
         init();
         String area = getArguments().getString("area");
-        String method = getArguments().getString("method");
+        String way = getArguments().getString("way");
         String position = getArguments().getString("position");
         String time = getArguments().getString("time");
         String use = getArguments().getString("use");
@@ -43,7 +43,7 @@ public class Forest_basicInfomation extends Fragment {
         tv_basic_area.setText(area);
         tv_basic_use.setText(use);
         tv_basic_time.setText(time);
-        tv_basic_method.setText(method);
+        tv_basic_method.setText(way);
         tv_basic_position.setText(position);
     }
     void init()
